@@ -46,6 +46,7 @@ ALLOWED_TAGS = bleach.ALLOWED_TAGS + [
 ALLOWED_ATTRIBUTES = dict(bleach.ALLOWED_ATTRIBUTES.items())
 ALLOWED_ATTRIBUTES.update({
     "img": ["src"],
+    "span": ["class"],
 })
 
 # Get the Storage Engine for Packages
@@ -345,6 +346,7 @@ class ReleaseFile(models.Model):
         ("bdist_rpm", "RPM"),
         ("bdist_dumb", _("Dumb Binary Distribution")),
         ("bdist_wininst", _("Windows Installer Binary Distribution")),
+        ("bdist_wheel", _("Wheel")),
     )
 
     created = AutoCreatedField("created", db_index=True)
